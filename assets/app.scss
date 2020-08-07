@@ -1,0 +1,188 @@
+/*
+	https://coolors.co/e8e9ee-d8dbe2-a9bcd0-5b6886-373f51-1b1b1e-e63946-34c4da
+	#e8e9ee  Ghost White
+	#d8dbe2  Gainsboro
+	#a9bcd0  Light Steel Blue
+	#5b6886  Dark Blue Grey
+	#373f51  Charcoal
+	#1b1b1e  Raisin Black
+	#e63946  Imperial Red
+	#34c4da  Cadet Blue
+*/
+
+html, body, section {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	background: #1b1b1e;
+}
+
+body, button, input {
+	font-family: 'Roboto', sans-serif;
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+}
+
+// Login
+#login {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	flex-grow: 1;
+}
+
+#login input {
+	display: block;
+	outline: none;
+	border: none;
+	margin: 0;
+	width: 200px;
+	padding: 12px;
+	font-size: 16px;
+	color: #373f51;
+}
+
+#login input[type="text"] {
+	border-radius: 5px 5px 0 0;
+	border-bottom: 1px solid #d8dbe2;
+}
+
+#login input[type="password"] {
+	border-radius: 0 0 5px 5px;
+}
+
+#login button {
+	visibility: hidden;
+}
+
+// Index
+#hamburgerButton {
+	display: block;
+	position: fixed;
+	top: 0;
+	right: 0;
+	outline: 0;
+	border: 0;
+	padding: 10px;
+	visibility: hidden;
+	cursor: pointer;
+	z-index: 13;
+	user-select: none;
+	-webkit-user-select: none;
+
+	svg {
+		display: block;
+		margin: 0;
+		padding: 2px 4px 2px 4px;
+		width: 24px;
+		height: 24px;
+		border-radius: 3px;
+		overflow: hidden;
+		line-height: 10px;
+		fill: #5b6886;
+		background: #1b1b1e;
+		transition: fill 200ms ease-in-out;
+	}
+
+	&.active svg { fill: #d8dbe2; }
+}
+
+#menu {
+	display: block;
+	position: fixed;
+	top: 42px;
+	right: 16px;
+	border-radius: 3px;
+	background: #e8e9ee;
+	box-shadow: 0px 1px 4px 0px #1b1b1e;
+	cursor: pointer;
+	user-select: none;
+	-webkit-user-select: none;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 200ms ease-in-out;
+	&.open {
+	 opacity: 1;
+	 visibility: visible;
+	}
+
+	ul {
+		margin: 0;
+		padding: 4px 0 4px 0;
+		list-style: none;
+	}
+
+	button {
+		display: block;
+		background: none;
+		border: 0;
+		outline: 0;
+		padding: 10px 12px 10px 12px;
+		width: 100%;
+		text-align: left;
+		font-size: 14px;
+		color: #5b6886;
+		cursor: pointer;
+		user-select: none;
+		-webkit-user-select: none;
+		&:hover {
+			background: #d8dbe2;
+			color: #373f51;
+		}
+	}
+
+	.action-danger       { color: #ec626e; }
+	.action-danger:hover { color: #e63946; }
+}
+
+#loadingIndicator {
+	display: block;
+	position: fixed;
+	top: 14px;
+	right: 46px;
+	padding: 2px;
+	width: 16px;
+	height: 16px;
+	z-index: 1989;
+	opacity: 0;
+	transition: opacity 200ms ease-in-out;
+	user-select: none;
+	-webkit-user-select: none;
+	background: #1b1b1e;
+	&.active { opacity: 1; }
+}
+
+#note {
+	display: flex;
+	flex-grow: 1;
+	margin: 0;
+	outline: none;
+	border: none;
+	border-radius: 0;
+	margin-bottom: 18px;
+	padding: 10px;
+	font-size: 14px;
+	font-family: 'Roboto Mono', monospace;
+	background: #1b1b1e;
+	color: #d8dbe2;
+	resize: none;
+}
+
+#infoBar {
+	position: fixed;
+	display: block;
+	left: 4px;
+	bottom: 2px;
+	font-size: 11px;
+	color: #373f51;
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+@import 'snackbar';
+@import 'spinner';

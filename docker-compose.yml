@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  notepad:
+    build: ./
+    image: memiux/notepad
+    env_file: .env.${ENVIRONMENT:-development}
+    ports:
+      - '8000:8000'
+    depends_on:
+      - redis
+    restart: 'no'
+
+  redis:
+    image: redis:6.0.6-alpine
+    command: ["redis-server", "--appendonly", "no", "--tcp-backlog", "128"]
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+    restart: 'no'
+
+volumes:
+  redis_data:

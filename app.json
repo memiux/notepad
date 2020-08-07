@@ -1,0 +1,23 @@
+{
+  "name": "Notepad",
+  "description": "A barebones Notepad app using Sinatra and JavaScript",
+  "repository": "https://github.com/memiux/notepad",
+  "logo": "https://ghcdn.rawgit.org/memiux/notepad/master/public/apple-touch-icon.png",
+  "keywords": ["ruby", "sinatra", "javascript", "notepad"],
+  "stack": "container",
+  "env": {
+    "SESSION_SECRET": {
+      "description": "A secret key for verifying the integrity of signed cookies",
+      "generator": "secret"
+    },
+    "APP_USERNAME": {
+      "description": "Username",
+      "value": "root"
+    },
+    "APP_PASSWORD": {
+      "description": "Password",
+      "value": "123"
+    }
+  },
+  "addons": ["heroku-redis:hobby-dev"]
+}
